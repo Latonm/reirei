@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隨機數字生成器</title>
+    <!-- 引入 Tailwind CSS 以進行快速樣式設計 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 使用 Google 字體 Inter，提供更美觀的字體 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen">
+
+    <!-- 主容器 -->
+    <div class="bg-white p-8 rounded-xl shadow-lg text-center max-w-sm w-full">
+        
+        <!-- 標題 -->
+        <h1 class="text-2xl font-bold text-slate-800 mb-4">隨機數字生成器</h1>
+        <p class="text-slate-500 mb-6">點擊按鈕以產生一個 0 到 700 之間的隨機數字。</p>
+
+        <!-- 顯示結果的區域 -->
+        <div id="result-display" class="bg-slate-100 w-full py-10 rounded-lg mb-6">
+            <span class="text-6xl font-black text-slate-700">?</span>
+        </div>
+
+        <!-- 觸發按鈕 -->
+        <button id="generate-btn" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors duration-300">
+            產生數字
+        </button>
+
+    </div>
+
+    <script>
+        // --- DOM 元素選擇 ---
+        // 獲取顯示結果的 <span> 元素
+        const resultDisplay = document.querySelector('#result-display span');
+        // 獲取“產生數字”按鈕
+        const generateBtn = document.getElementById('generate-btn');
+
+        // --- 事件監聽器 ---
+        // 為按鈕添加點擊事件
+        generateBtn.addEventListener('click', () => {
+            // 呼叫函式來產生並顯示隨機數
+            generateRandomNumber();
+        });
+
+        // --- 核心函式 ---
+        /**
+         * 產生一個介於 0 和 700 之間的隨機整數，並將其顯示在頁面上。
+         */
+        function generateRandomNumber() {
+            // 1. Math.random() 會產生一個 0 (含) 到 1 (不含) 之間的浮點數。
+            // 2. 將其乘以 1001，使其範圍變為 0 到 1000.999...
+            // 3. Math.floor() 會無條件捨去小數，得到一個 0 到 1000 之間的整數。
+            const randomNumber = Math.floor(Math.random() * 701);
+
+            // 更新顯示區域的文字內容
+            resultDisplay.textContent = randomNumber;
+        }
+    </script>
+
+</body>
+</html>
