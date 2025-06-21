@@ -21,7 +21,7 @@
         
         <!-- 標題 -->
         <h1 class="text-2xl font-bold text-slate-800 mb-4">隨機數字生成器</h1>
-        <p class="text-slate-500 mb-6">點擊按鈕以產生一個 0 到 700 之間的隨機數字。</p>
+        <p class="text-slate-500 mb-6">點擊按鈕以產生一個 0 到 703 之間的隨機數字。</p>
 
         <!-- 顯示結果的區域 -->
         <div id="result-display" class="bg-slate-100 w-full py-10 rounded-lg mb-6">
@@ -51,13 +51,13 @@
 
         // --- 核心函式 ---
         /**
-         * 產生一個介於 0 和 700 之間的隨機整數，並將其顯示在頁面上。
+         * 產生一個介於 0 和 703 之間的隨機整數，並將其顯示在頁面上。
          */
         function generateRandomNumber() {
             // 1. Math.random() 會產生一個 0 (含) 到 1 (不含) 之間的浮點數。
             // 2. 將其乘以 1001，使其範圍變為 0 到 1000.999...
-            // 3. Math.floor() 會無條件捨去小數，得到一個 0 到 1000 之間的整數。
-            const randomNumber = Math.floor(Math.random() * 701);
+            // 3. Math.floor() 會無條件捨去小數，得到一個 0 到 703 之間的整數。
+            const randomNumber = Math.floor(Math.random() * 704);
 
             // 更新顯示區域的文字內容
             resultDisplay.textContent = randomNumber;
